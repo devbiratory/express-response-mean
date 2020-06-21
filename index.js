@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const port = process.env.PORT || 8000;
 let totalRequests = 0; // total incoming requests
-let totalResponseTime = 0; // total incoming requests
+let totalResponseTime = 0; // total response time 
 app.set("average-response-time", 0);
 app.use(
   responseTime(function(req, res, time) {
