@@ -14,12 +14,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const port = process.env.PORT || 8000;
 let totalRequests = 0; // total incoming requests
+let totalResponseTime = 0; // total incoming requests
 app.set("average-response-time", 0);
 app.use(
   responseTime(function(req, res, time) {
     totalRequests++; // increment on each incoming request
-    let avgResponseTime = parseFloat(app.get("average-response-time"));
-    let newAvg = (time + avgResponseTime) / totalRequests; // new average response time
+    totalResponseTime += time
+    let newAvg = totalResponseTime / totalRequests; // new average response time
     app.set("average-response-time", newAvg.toFixed(2)); // set to contain the new average response time value
     console.log(
       "average server response time is now " + app.get("average-response-time")
