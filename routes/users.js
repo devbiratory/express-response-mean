@@ -1,9 +1,8 @@
 const utils = require('../utils/utils')
 
 module.exports = app => {
-
   /**
-   * Return a Static List of Users
+   * Return a Static List of Users 12
    */
   app.get('/users', (req, res) => {
     return setTimeout(() => {
