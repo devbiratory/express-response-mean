@@ -1,7 +1,6 @@
 const utils = require('../utils/utils')
 
 module.exports = app => {
-
   /**
    * Return a Static List of Users 12
    */
